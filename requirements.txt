@@ -1,5 +1,6 @@
 numpy
 sklearn
+pickle
 sentence-transformers
 torch
 torchvision
@@ -9,4 +10,3 @@ Flask_Cors
 Flask_RESTful
 pandas
 gdown
-pickle
