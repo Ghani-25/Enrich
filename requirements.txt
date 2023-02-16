@@ -1,0 +1,12 @@
+numpy
+sklearn
+sentence-transformers
+torch
+torchvision
+requests
+Flask
+Flask_Cors
+Flask_RESTful
+pandas
+gdown
+pickle
