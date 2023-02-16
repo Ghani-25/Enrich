@@ -1,6 +1,8 @@
 numpy
 sentence-transformers
 torch
+gdown
+sklearn
 torchvision
 requests
 Flask
