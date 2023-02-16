@@ -7,7 +7,7 @@ from sentence_transformers import SentenceTransformer, util
 
 model = SentenceTransformer("Ghani-25/LF_enrich_sim", device='cuda')
 url = "https://drive.google.com/uc?export=download&id=1-GEVcdInQ1QIaPsOYKJDoUcxmVpnhmFM"
-output = "Embeddings_full"
+output = "./Embeddings_full"
 gdown.download(url, output, quiet=False)
 with open("./Embeddings_full", "rb") as fp:
   Embeddings = pickle.load(fp)
