@@ -2,7 +2,7 @@ numpy
 sentence-transformers
 torch
 gdown
-sklearn
+scikit-learn
 torchvision
 requests
 Flask
