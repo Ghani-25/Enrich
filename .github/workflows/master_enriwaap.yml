@@ -60,4 +60,4 @@ jobs:
         with:
           app-name: 'Enriwaap'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_85C5000A25ED401D83DE5D2FD884FEB6 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_D31B25E526654607BA9AE5BB103613FF }}
