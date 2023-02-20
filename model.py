@@ -11,7 +11,10 @@ output = "Embeddings_full"
 gdown.download(url, output, quiet=False)
 with open("./Embeddings_full", "rb") as fp:
   Embeddings = pickle.load(fp)
-
+url = "https://drive.google.com/uc?export=download&id=1TyATJx0l5J3eVQ7PXx9zsZop4x1M1Ux6"
+OccClean = "occupationClean.csv"
+gdown.download(url, OccClean, quiet=False)
+occPd = pd.read_csv('./occupationClean.csv', sep=',', encoding='UTF-8')
 def enrichir(tab):
     #Compute cosine-similarities with all embeddings
     query = '. '.join(tab)
@@ -21,4 +24,7 @@ def enrichir(tab):
     print('Les taux de similarités sont :', Similarities)
     top_matches = torch.argsort(cosine_scores, dim=-1, descending=True).tolist()[0][0:20]
     print(top_matches)
-    return top_matches
+    results=[]
+    for index in top_matches:
+      results.append(occPd.iloc[index,1])
+    return results
