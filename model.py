@@ -14,7 +14,7 @@ with open("./Embeddings_full", "rb") as fp:
 url = "https://drive.google.com/uc?export=download&id=1TyATJx0l5J3eVQ7PXx9zsZop4x1M1Ux6"
 OccClean = "occupationClean.csv"
 gdown.download(url, OccClean, quiet=False)
-occPd = pd.read_csv('./occupationClean.csv', sep=',', encoding='UTF-8')
+occPd = pd.read_csv('./occupationClean.csv', lineterminator='\n', on_bad_lines='skip', header=0, encoding='UTF-8')
 def enrichir(tab, count):
     #Compute cosine-similarities with all embeddings
     query = '. '.join(tab)
