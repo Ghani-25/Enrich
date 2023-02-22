@@ -15,14 +15,14 @@ url = "https://drive.google.com/uc?export=download&id=1TyATJx0l5J3eVQ7PXx9zsZop4
 OccClean = "occupationClean.csv"
 gdown.download(url, OccClean, quiet=False)
 occPd = pd.read_csv('./occupationClean.csv', sep=',', encoding='UTF-8')
-def enrichir(tab):
+def enrichir(tab, count):
     #Compute cosine-similarities with all embeddings
     query = '. '.join(tab)
     query_embedd = model.encode(query)
     cosine_scores = util.pytorch_cos_sim(query_embedd, Embeddings)
     Similarities = torch.sort(cosine_scores,descending=True)
     print('Les taux de similarités sont :', Similarities)
-    top_matches = torch.argsort(cosine_scores, dim=-1, descending=True).tolist()[0][0:20]
+    top_matches = torch.argsort(cosine_scores, dim=-1, descending=True).tolist()[0][0:count]
     print(top_matches)
     results=[]
     for index in top_matches:
