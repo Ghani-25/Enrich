@@ -17,19 +17,18 @@ def predict():
     text = request.form.get("occupations")
     occupation = text.split(',')
     print(occupation)
-    output = enrichir(occupation)
+    output = enrichir(occupation, 20)
 
     return render_template('index.html', prediction_text='Enriched prospects $ {}'.format(output))
-    #return render_template('indexx.html', tables=[Liste_enrichie.to_html(classes='data')], titles=Liste_enrichie.columns.values)
 
 @app.route('/results',methods=['POST'])
 def results():
 
     data = request.get_json(force=True)
     occupation = data.get("occupations")
-    #occupation = text.split(',')
+    count = data.get("count")
     print(occupation)
-    output = enrichir(occupation)
+    output = enrichir(occupation, count)
 
     return jsonify(output)
 
